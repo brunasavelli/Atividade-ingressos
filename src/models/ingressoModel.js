@@ -26,14 +26,14 @@ const updateIngresso = async (id, evento, local, data_evento, categoria, preco, 
     return result.rows[0];
 };
 
-// const deleteIngresso = async (id) => {
-//     const result = await pool.query("DELETE FROM ingressos WHERE id = $1 RETURNING *", [id]);
+const deleteIngresso = async (id) => {
+    const result = await pool.query("DELETE FROM ingressos WHERE id = $1 RETURNING *", [id]);
 
-//     if (result.rowCount === 0) {
-//         return { error: "Ingresso não encontrado." };
-//     }
+    if (result.rowCount === 0) {
+        return { error: "Ingresso não encontrado." };
+    }
 
-//     return { message: "Ingresso deletado com sucesso." };
-// };
+    return { message: "Ingresso deletado com sucesso." };
+};
 
-module.exports = { getIngressos, getIngressoById, createIngresso, updateIngresso };
+module.exports = { getIngressos, getIngressoById, createIngresso, updateIngresso, deleteIngresso };
