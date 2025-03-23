@@ -10,13 +10,13 @@ const getIngressoById = async (id) => {
     return result.rows[0];
 };
 
-// const createIngresso = async (evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
-//     const result = await pool.query(
-//         "INSERT INTO ingressos (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-//         [evento, local, data_evento, categoria, preco, quantidade_disponivel]
-//     );
-//     return result.rows[0];
-// };
+const createIngresso = async (evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
+    const result = await pool.query(
+        "INSERT INTO ingressos (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+        [evento, local, data_evento, categoria, preco, quantidade_disponivel]
+    );
+    return result.rows[0];
+};
 
 // const updateIngresso = async (id, evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
 //     const result = await pool.query(
@@ -36,4 +36,4 @@ const getIngressoById = async (id) => {
 //     return { message: "Ingresso deletado com sucesso." };
 // };
 
-module.exports = { getIngressos, getIngressoById };
+module.exports = { getIngressos, getIngressoById, createIngresso };

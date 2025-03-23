@@ -21,16 +21,16 @@ const getIngresso = async (req, res) => {
     }
 };
 
-// const createIngresso = async (req, res) => {
-//     try {
-//         const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
-//         const newIngresso = await ingressoModel.createIngresso(evento, local, data_evento, categoria, preco, quantidade_disponivel);
-//         res.status(201).json(newIngresso);
-//     } catch (error) {
-// 	console.log(error);
-//         res.status(500).json({ message: "Erro ao criar ingresso." });
-//     }
-// };
+const createIngresso = async (req, res) => {
+    try {
+        const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
+        const newIngresso = await ingressoModel.createIngresso(evento, local, data_evento, categoria, preco, quantidade_disponivel);
+        res.status(201).json(newIngresso);
+    } catch (error) {
+	console.log(error);
+        res.status(500).json({ message: "Erro ao criar ingresso." });
+    }
+};
 
 // const updateIngresso = async (req, res) => {
 //     try {
@@ -54,4 +54,4 @@ const getIngresso = async (req, res) => {
 //     }
 // };
 
-module.exports = { getAllIngressos, getIngresso };
+module.exports = { getAllIngressos, getIngresso, createIngresso };
