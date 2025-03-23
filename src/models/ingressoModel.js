@@ -5,10 +5,10 @@ const getIngressos = async () => {
     return result.rows;
 };
 
-// const getIngressoById = async (id) => {
-//     const result = await pool.query("SELECT * FROM ingressos WHERE id = $1", [id]);
-//     return result.rows[0];
-// };
+const getIngressoById = async (id) => {
+    const result = await pool.query("SELECT * FROM ingressos WHERE id = $1", [id]);
+    return result.rows[0];
+};
 
 // const createIngresso = async (evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
 //     const result = await pool.query(
@@ -36,4 +36,4 @@ const getIngressos = async () => {
 //     return { message: "Ingresso deletado com sucesso." };
 // };
 
-module.exports = { getIngressos };
+module.exports = { getIngressos, getIngressoById };

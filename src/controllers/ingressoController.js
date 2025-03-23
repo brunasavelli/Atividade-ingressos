@@ -9,17 +9,17 @@ const getAllIngressos = async (req, res) => {
     }
 };
 
-// const getIngresso = async (req, res) => {
-//     try {
-//         const ingresso = await ingressoModel.getIngressoById(req.params.id);
-//         if (!ingresso) {
-//             return res.status(404).json({ message: "Ingresso não encontrado." });
-//         }
-//         res.json(ingresso);
-//     } catch (error) {
-//         res.status(500).json({ message: "Erro ao buscar ingresso." });
-//     }
-// };
+const getIngresso = async (req, res) => {
+    try {
+        const ingresso = await ingressoModel.getIngressoById(req.params.id);
+        if (!ingresso) {
+            return res.status(404).json({ message: "Ingresso não encontrado." });
+        }
+        res.json(ingresso);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar ingresso." });
+    }
+};
 
 // const createIngresso = async (req, res) => {
 //     try {
@@ -54,4 +54,4 @@ const getAllIngressos = async (req, res) => {
 //     }
 // };
 
-module.exports = { getAllIngressos };
+module.exports = { getAllIngressos, getIngresso };
