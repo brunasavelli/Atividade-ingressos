@@ -32,18 +32,18 @@ const createIngresso = async (req, res) => {
     }
 };
 
-// const updateIngresso = async (req, res) => {
-//     try {
-//         const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
-//         const updatedIngresso = await ingressoModel.updateIngresso(req.params.id, evento, local, data_evento, categoria, preco, quantidade_disponivel);
-//         if (!updatedIngresso) {
-//             return res.status(404).json({ message: "Ingresso não encontrado." });
-//         }
-//         res.json(updatedIngresso);
-//     } catch (error) {
-//         res.status(500).json({ message: "Erro ao atualizar ingresso." });
-//     }
-// };
+const updateIngresso = async (req, res) => {
+    try {
+        const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
+        const updatedIngresso = await ingressoModel.updateIngresso(req.params.id, evento, local, data_evento, categoria, preco, quantidade_disponivel);
+        if (!updatedIngresso) {
+            return res.status(404).json({ message: "Ingresso não encontrado." });
+        }
+        res.json(updatedIngresso);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao atualizar ingresso." });
+    }
+};
 
 // const deleteIngresso = async (req, res) => {
 //     try {
@@ -54,4 +54,4 @@ const createIngresso = async (req, res) => {
 //     }
 // };
 
-module.exports = { getAllIngressos, getIngresso, createIngresso };
+module.exports = { getAllIngressos, getIngresso, createIngresso, updateIngresso };

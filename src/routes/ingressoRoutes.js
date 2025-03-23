@@ -5,7 +5,7 @@ const ingressoController = require("../controllers/ingressoController");
 router.get("/ingressos", ingressoController.getAllIngressos);
 router.get("/ingressos/:id", ingressoController.getIngresso);
 router.post("/ingressos", ingressoController.createIngresso);
-// router.get("/ingressos/:id", ingressoController.updateIngresso);
+router.put("/ingressos/:id", ingressoController.updateIngresso);
 // router.get("/ingressos/:id", ingressoController.deleteIngresso);
 
 module.exports = router;

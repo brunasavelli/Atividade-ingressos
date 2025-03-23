@@ -18,13 +18,13 @@ const createIngresso = async (evento, local, data_evento, categoria, preco, quan
     return result.rows[0];
 };
 
-// const updateIngresso = async (id, evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
-//     const result = await pool.query(
-//         "UPDATE ingressos SET evento = $1, local = $2, data_evento = $3, categoria = $4, preco = $5, quantidade_disponivel = $6 WHERE id = $7 RETURNING *",
-//         [evento, local, data_evento, categoria, preco, quantidade_disponivel, id]
-//     );
-//     return result.rows[0];
-// };
+const updateIngresso = async (id, evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
+    const result = await pool.query(
+        "UPDATE ingressos SET evento = $1, local = $2, data_evento = $3, categoria = $4, preco = $5, quantidade_disponivel = $6 WHERE id = $7 RETURNING *",
+        [evento, local, data_evento, categoria, preco, quantidade_disponivel, id]
+    );
+    return result.rows[0];
+};
 
 // const deleteIngresso = async (id) => {
 //     const result = await pool.query("DELETE FROM ingressos WHERE id = $1 RETURNING *", [id]);
@@ -36,4 +36,4 @@ const createIngresso = async (evento, local, data_evento, categoria, preco, quan
 //     return { message: "Ingresso deletado com sucesso." };
 // };
 
-module.exports = { getIngressos, getIngressoById, createIngresso };
+module.exports = { getIngressos, getIngressoById, createIngresso, updateIngresso };
