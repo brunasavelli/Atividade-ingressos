@@ -36,7 +36,7 @@ const deleteIngresso = async (id) => {
     return { message: "Ingresso deletado com sucesso." };
 };
 
-const vendaIngresso = async (id, ingressos_comprados, evento) => {
+const vendaIngresso = async (id, ingressos_comprados, evento, categoria) => {
     const ingresso = await pool.query("SELECT * FROM ingressos WHERE id = $1", [id]);
     let quantidade_disponivel = ingresso.rows[0].quantidade_disponivel;
 
@@ -48,7 +48,7 @@ const vendaIngresso = async (id, ingressos_comprados, evento) => {
         "UPDATE ingressos SET quantidade_disponivel = $2 WHERE id = $1 RETURNING *",
         [id, quantidade_disponivel]
     );
-    return { message: "Compra realizada com sucesso!", quantidade_disponivel, ingressos_comprados };
+    return { message: "Compra realizada com sucesso!", evento, categoria, ingressos_comprados, quantidade_disponivel };
 
 };
 
