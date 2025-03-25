@@ -1,12 +1,12 @@
 # Como rodar o Back-End corretamente?
 ## 1. Clone este repositório no VSCode e instale as bibliotecas necessárias com os seguintes códigos:
 
-    **npm install express cors dotenv uuid**
+    npm install express cors dotenv uuid
     
-    **npm install nodemon --save-dev**
+    npm install nodemon --save-dev
 
 ## 2. Coloque o servidor para rodar com o seguinte comando:
-    **npm run dev**
+    npm run dev
 
 ## 3. Abra o Postman, crie uma pasta com as seguintes 'requests':
 
