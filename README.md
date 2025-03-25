@@ -36,7 +36,7 @@ E no body adicione as informações que você deseja atualizar ("evento", "local
 *As informações que não desejar alterar também devem ser inseridas.
 Após clicar em 'Send', o ingresso será atualizado.
 
-## 4.5. Deletar um ingresso
+### 4.5. Deletar um ingresso
 Dentro da rota DELETE adicione a seguinte URL: _http://localhost:3000/api/ingressos/id_ (onde colocará o id desejado no lugar de **id**)
 Após clicar em 'Send', o ingresso será deletado, sendo possível confirmar com a mensagem de confirmação:
 
