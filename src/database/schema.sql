@@ -1,5 +1,7 @@
 CREATE DATABASE bilheteria;
 
+\c bilheteria
+
 CREATE TABLE ingressos (
     id SERIAL PRIMARY KEY,
     evento VARCHAR(255),

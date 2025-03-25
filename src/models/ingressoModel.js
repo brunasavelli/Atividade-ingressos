@@ -36,13 +36,16 @@ const deleteIngresso = async (id) => {
     return { message: "Ingresso deletado com sucesso." };
 };
 
-const vendaIngresso = async (id, ingressos_comprados, evento, categoria) => {
+const vendaIngresso = async (id, ingressos_comprados) => {
     const ingresso = await pool.query("SELECT * FROM ingressos WHERE id = $1", [id]);
     let quantidade_disponivel = ingresso.rows[0].quantidade_disponivel;
 
     if (quantidade_disponivel < ingressos_comprados) {
         return { error: "Ingressos esgotados" };
     }
+
+    let { evento, categoria } = ingresso.rows[0];
+
     quantidade_disponivel -= ingressos_comprados;
     const result = await pool.query(
         "UPDATE ingressos SET quantidade_disponivel = $2 WHERE id = $1 RETURNING *",
