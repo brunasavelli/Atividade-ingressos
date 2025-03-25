@@ -1,7 +1,7 @@
 # Como rodar o Back-End corretamente?
 ## 1. Clone este repositório no VSCode e instale as bibliotecas necessárias com os seguintes códigos:
 
-    npm install express cors dotenv uuid
+    npm install express cors dotenv pg
     
     npm install nodemon --save-dev
 
