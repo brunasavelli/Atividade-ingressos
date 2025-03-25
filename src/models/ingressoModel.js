@@ -41,6 +41,9 @@ const vendaIngresso = async (id, ingressos_comprados) => {
     let quantidade_disponivel = ingresso.rows[0].quantidade_disponivel;
 
     if (quantidade_disponivel < ingressos_comprados) {
+        return { error: "Quantidade acima do disponivel" };
+    }
+    if (quantidade_disponivel === 0) {
         return { error: "Ingressos esgotados" };
     }
 
